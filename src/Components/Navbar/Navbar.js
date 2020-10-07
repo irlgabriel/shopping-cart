@@ -10,7 +10,6 @@ import {
 } from "./Navbar.components";
 
 export default function Navbar() {
-  const []
   return(
     <Nav>
       <NavMenu>
