@@ -6,10 +6,12 @@ import {
   CartIcon,
   NavMenu,
   NavItem,
-  NavLink
+  NavLink,
+  CartSpan,
+  ItemsCount,
 } from "./Navbar.components";
 
-export default function Navbar() {
+export default function Navbar({cartItems}) {
   return(
     <Nav>
       <NavMenu>
@@ -20,7 +22,13 @@ export default function Navbar() {
           <NavLink to="/cart">Checkout</NavLink>
         </NavItem>    
       </NavMenu>
-      <CartIcon />
+      <CartSpan>
+        <CartIcon />
+        {
+          cartItems.length && 
+          <ItemsCount>{cartItems.length}</ItemsCount>
+        }
+      </CartSpan>
     </Nav>
   )
 }

@@ -23,11 +23,28 @@ export const NavItem = styled.li`
 `
 export const CartIcon = styled(FaShoppingCart)`
   font-size: 1.5rem;
-  margin-left: auto;
   color: white;
+  z-index: 2;
 `
 export const NavLink = styled(Link)`
   text-decoration: none;
   color: white;
   font-size: 1.4rem;
+`
+
+export const CartSpan = styled.div`
+  margin-left: auto;
+  display: inline-block;
+  width: 2rem;
+  position: relative;
+`
+export const ItemsCount = styled.span`
+  position: absolute;
+  bottom: -.5rem;
+  right: -.5rem; 
+  color: white;
+  padding: .125rem .375rem;
+  border-radius: 50%;
+  background: lightcoral;
+  z-index: 1;
 `

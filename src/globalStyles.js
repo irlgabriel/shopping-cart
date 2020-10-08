@@ -13,3 +13,7 @@ export const Container = styled.div`
   margin: 0 auto;
   padding: 2rem;
 `
+
+export const Bold = styled.span`
+  font-weight: bold;
+`
