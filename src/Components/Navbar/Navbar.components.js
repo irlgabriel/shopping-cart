@@ -19,7 +19,16 @@ export const NavMenu = styled.ul`
 
 export const NavItem = styled.li`
   margin: 0 .25rem;
+  padding: .25rem .75rem;
+  border: 1px solid lightskyblue;
+  border-radius: 5px;
   color: white;
+  transition: all .3s ease;
+
+  &:hover {
+    border-radius: 1px solid #101522;
+    background: lightskyblue;
+  }
 `
 export const CartIcon = styled(FaShoppingCart)`
   font-size: 1.5rem;

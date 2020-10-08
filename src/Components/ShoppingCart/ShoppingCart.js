@@ -20,7 +20,7 @@ export default function ShoppingCart({
   function deleteHandler(e) {
     e.stopPropagation()
     const itemName = e.target.getAttribute("data-name")
-    const currentItem = cartItems.find(item => item.name == itemName)
+    const currentItem = cartItems.find(item => item.name === itemName)
     console.log(itemName, currentItem)  
 
     console.log(e.target, e.itemName)
@@ -31,14 +31,14 @@ export default function ShoppingCart({
     <Container>
       <CartContainer>
         { 
-          cartItems.length == 0 && 
+          cartItems.length === 0 && 
           <Container>
             <CartHeader>You don't have any items in your cart</CartHeader>
             <Link to="/">Pick some Items</Link>
           </Container>
         }
         { 
-          cartItems.length != 0 &&
+          cartItems.length !== 0 &&
           <CartTable>
             <CartRow>
               <CartData>

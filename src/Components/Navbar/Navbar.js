@@ -23,7 +23,7 @@ export default function Navbar({cartItems}) {
         </NavItem>    
       </NavMenu>
       <CartSpan>
-        <CartIcon />
+        <NavLink to="/cart"><CartIcon /></NavLink>
         {
           cartItems.length && 
           <ItemsCount>{cartItems.length}</ItemsCount>

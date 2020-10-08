@@ -24,12 +24,18 @@ export const PriceLabel = styled.button`
   border-radius: 4px;
   background: ${({clicked}) => (clicked ? "lightgray" : "burlywood")};
   color: white;
+  transition: all .3s ease;
 
   &:active, &:focus {
     border: none;
     outline: none;
   }
 
+  &:hover {
+  border: ${({clicked}) => (clicked ? "" : "1px solid black")};
+  cursor: ${({clicked}) => (clicked ? "default " : "pointer")};
+
+  }
 `
 
 export const Bold = styled.span`

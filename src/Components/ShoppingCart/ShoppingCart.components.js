@@ -3,9 +3,10 @@ import { FaTrash }   from "react-icons/fa";
 import { Link as RouteLink } from "react-router-dom";
 
 export const CartTable = styled.div`
-  margin-left: auto;
+  margin: auto;
   display: table;
   border-collapse: collapse;
+  min-width: 600px;
 `
 
 export const CartContainer = styled.div`
@@ -17,7 +18,7 @@ export const CartRow = styled.div`
   position: relative;
   border-bottom: 1px solid black;
 
-  &:first-of-type {
+  &:last-of-type {
     border: none;
   }
 
@@ -27,8 +28,6 @@ export const CartData = styled.div`
   display: table-cell;
   position: relative;
   padding: .5rem 1.5rem;
-  border-bottom: 1px solid black;
-  border-top: 1px solid black;
   font-size: 1.5rem;
   user-select: none;
 
@@ -40,6 +39,7 @@ export const CartHeader = styled.h3`
 
 export const Link = styled(RouteLink)`
   text-decoration: none;
+  font-size: 1.2em;
 `
 
 export const DeleteDiv = styled.span`
