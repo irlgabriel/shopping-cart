@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-// Importing Styled Components 
+// Importing Styled Components
 import {
   Nav,
   CartIcon,
@@ -10,38 +10,49 @@ import {
   CartSpan,
   ItemsCount,
   CartDropdown,
-  CloseButton
+  CloseButton,
+  HeaderDropdown,
+  ItemDropdown,
+  PriceDropdown,
+  LinkButton,
 } from "./Navbar.components";
 
-export default function Navbar({cartItems}) {
-  const [cartHovered, setHover] = useState(false);
-  function hoverHandler(e) {
-    setHover(true);
+export default function Navbar({ 
+  cartItems,
+  setItems,
+}) {
+  const [cartClicked, setClicked] = useState(false);
+  function clickHandler(e) {
+    setClicked(!cartClicked);
   }
   function dismissDropdown(e) {
-    e.stopPropagation()
-    setHover(false);
+    e.stopPropagation();
+    setClicked(false);
   }
-  return(
+  return (
     <Nav>
       <NavMenu>
         <NavItem>
-          <NavLink to="/">Home</NavLink>
+          <NavLink onClick={dismissDropdown} to="/">Home</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/cart">Checkout</NavLink>
-        </NavItem>    
+          <NavLink onClick={dismissDropdown} to="/cart">Checkout</NavLink>
+        </NavItem>
       </NavMenu>
       <CartSpan>
-        <NavLink to="/cart"><CartIcon onMouseOver={hoverHandler} /></NavLink>
-        {
-          cartItems.length && 
-          <ItemsCount>{cartItems.length}</ItemsCount>
-        }
-        <CartDropdown cartHovered={cartHovered}>
-          <CloseButton onClick={dismissDropdown}/>
-        </CartDropdown>
+        <CartIcon onClick={clickHandler} />
+        {cartItems.length && <ItemsCount>{cartItems.length}</ItemsCount>}
+        <CartDropdown cartClicked={cartClicked}>
+          <HeaderDropdown>Cart{cartItems.length ? `(${cartItems.length})` : ""}</HeaderDropdown>
+          <CloseButton onClick={dismissDropdown} />
+          {
+            cartItems.map(item => <ItemDropdown><HeaderDropdown>{item.name}</HeaderDropdown><PriceDropdown>${item.price}</PriceDropdown></ItemDropdown>)
+          }
+          {
+            cartItems.length && <LinkButton onClick={dismissDropdown} to="/cart">Checkout</LinkButton>
+          }
+            </CartDropdown>
       </CartSpan>
     </Nav>
-  )
+  );
 }

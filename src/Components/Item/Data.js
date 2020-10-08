@@ -31,5 +31,4 @@ export const Objects = [
     name: "Item Eight",
     price: 51.99,
   },
-
-]
+];

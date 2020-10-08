@@ -1,18 +1,11 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React, { useState } from "react";
+import { HashRouter as Router, Route } from "react-router-dom";
 
 // Importing Styled Components
-import {
-  Container, 
-  GlobalStyle
-} from './globalStyles'
+import { Container, GlobalStyle } from "./globalStyles";
 
 // Importing Functional Components
-import {
-  Home, 
-  Navbar, 
-  ShoppingCart
-} from "./Components";
+import { Home, Navbar, ShoppingCart } from "./Components";
 
 function App() {
   const [cartItems, setItems] = useState([]);
@@ -21,10 +14,33 @@ function App() {
   return (
     <Router>
       <GlobalStyle />
-      <Navbar cartItems={cartItems}/>
+      <Navbar cartItems={cartItems} />
       <Container>
-        <Route path="/" exact render={() => (<Home showMessage={showMessage} total={total} setTotal={setTotal} cartItems={cartItems} setItems={setItems}/>)} />
-        <Route path="/cart" render={() => (<ShoppingCart showMessage={showMessage} total={total} setTotal={setTotal} cartItems={cartItems} setItems={setItems}/>)} />
+        <Route
+          path="/"
+          exact
+          render={() => (
+            <Home
+              showMessage={showMessage}
+              total={total}
+              setTotal={setTotal}
+              cartItems={cartItems}
+              setItems={setItems}
+            />
+          )}
+        />
+        <Route
+          path="/cart"
+          render={() => (
+            <ShoppingCart
+              showMessage={showMessage}
+              total={total}
+              setTotal={setTotal}
+              cartItems={cartItems}
+              setItems={setItems}
+            />
+          )}
+        />
       </Container>
     </Router>
   );

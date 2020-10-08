@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { 
+import {
   ItemContainer,
   Header,
   PriceLabel,
@@ -15,23 +15,23 @@ export default function Item({
   setTotal,
   setFlash,
 }) {
-  const [clicked, setClicked] = useState(cartItems.includes(item))
+  const [clicked, setClicked] = useState(cartItems.includes(item));
   function clickHandler() {
-    if(!cartItems.includes(item)) {
+    if (!cartItems.includes(item)) {
       setItems([...cartItems, item]);
       setTotal((parseFloat(total) + parseFloat(item.price)).toFixed(2));
       setClicked(true);
       setFlash(true);
     }
-    
-    
   }
 
-  return(
+  return (
     <ItemContainer>
       <Header>{item.name}</Header>
-      <PriceLabel  onClick={clickHandler} clicked={clicked}><Bold>${item.price}</Bold><BuyButton/></PriceLabel>
-      
+      <PriceLabel onClick={clickHandler} clicked={clicked}>
+        <Bold>${item.price}</Bold>
+        <BuyButton />
+      </PriceLabel>
     </ItemContainer>
-  )
+  );
 }
