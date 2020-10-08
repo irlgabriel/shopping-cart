@@ -18,7 +18,7 @@ export default function Item({
   function clickHandler() {
     if(!cartItems.includes(item)) {
       setItems([...cartItems, item]);
-      setTotal(total + item.price)
+      setTotal(parseInt((total + item.price)).toFixed(2))
     }
     setClicked(true);
   }

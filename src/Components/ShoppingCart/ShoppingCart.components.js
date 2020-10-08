@@ -47,7 +47,7 @@ export const DeleteDiv = styled.span`
 `
 
 export const DeleteIcon = styled(FaTrash)`
-  color: red;
+  color: lightgray;
   position: absolute;
   left: 0;
   transform: rotate(0deg);

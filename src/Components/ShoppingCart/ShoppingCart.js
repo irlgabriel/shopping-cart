@@ -19,11 +19,9 @@ export default function ShoppingCart({
 }) {
   function deleteHandler(e) {
     e.stopPropagation()
-    const itemName = e.target.getAttribute("data-name")
+    const itemName = e.target.parentElement.parentElement.getAttribute("data-name");
     const currentItem = cartItems.find(item => item.name === itemName)
     console.log(itemName, currentItem)  
-
-    console.log(e.target, e.itemName)
     setItems(cartItems.filter(item => item.name !== itemName))
     // setTotal(total - currentItem.price);
   }

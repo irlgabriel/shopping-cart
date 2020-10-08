@@ -23,7 +23,6 @@ export const PriceLabel = styled.button`
   border: none;
   border-radius: 4px;
   background: ${({clicked}) => (clicked ? "lightgray" : "burlywood")};
-  color: white;
   transition: all .3s ease;
 
   &:active, &:focus {
