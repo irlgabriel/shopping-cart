@@ -6,7 +6,8 @@ export const CartTable = styled.div`
   margin: auto;
   display: table;
   border-collapse: collapse;
-  min-width: 600px;
+  min-width: 300px;
+  width: 70%;  
 `
 
 export const CartContainer = styled.div`
@@ -27,7 +28,7 @@ export const CartRow = styled.div`
 export const CartData = styled.div`
   display: table-cell;
   position: relative;
-  padding: .5rem 1.5rem;
+  padding: 1.5rem 1.5rem;
   font-size: 1.5rem;
   user-select: none;
 
@@ -50,12 +51,11 @@ export const DeleteIcon = styled(FaTrash)`
   color: lightgray;
   position: absolute;
   left: 0;
-  transform: rotate(0deg);
   transition: all .3s ease;
   cursor: pointer;
   
   &:hover {
-    transform: rotate(45deg);
+    transform: scale(1.05);
   }
   
 `

@@ -13,14 +13,18 @@ export default function Item({
   setItems,
   total,
   setTotal,
+  setFlash,
 }) {
   const [clicked, setClicked] = useState(cartItems.includes(item))
   function clickHandler() {
     if(!cartItems.includes(item)) {
       setItems([...cartItems, item]);
       setTotal((parseFloat(total) + parseFloat(item.price)).toFixed(2));
+      setClicked(true);
+      setFlash(true);
     }
-    setClicked(true);
+    
+    
   }
 
   return(

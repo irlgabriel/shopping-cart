@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FaShoppingCart } from "react-icons/fa";
+import { FaShoppingCart, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 export const Nav = styled.nav`
@@ -42,6 +42,7 @@ export const NavLink = styled(Link)`
 `
 
 export const CartSpan = styled.div`
+  position: relative;
   margin-left: auto;
   display: inline-block;
   width: 2rem;
@@ -56,4 +57,25 @@ export const ItemsCount = styled.span`
   border-radius: 50%;
   background: lightcoral;
   z-index: 1;
+`
+
+export const CartDropdown = styled.div`
+  overflow: hidden;
+  position: absolute;
+  right: ${({cartHovered}) => (cartHovered === true ? "0px" : "-800%")};
+  top: 50px;
+  border: 1px solid lightskyblue;
+  width: 200px;
+  height: 400px;
+  border: none;
+  padding: .5rem;
+
+  transition: all .5s ease;
+  background: lightcoral;
+`
+
+export const CloseButton = styled(FaTimes)`
+  position: absolute;
+  top: 10px;
+  right: 10px;
 `
