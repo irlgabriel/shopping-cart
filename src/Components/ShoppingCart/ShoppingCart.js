@@ -1,5 +1,6 @@
-import React from "react";
-import { Container, Bold } from "../../globalStyles";
+import React, { useState } from "react";
+import { Container, Bold, FlashContainer } from "../../globalStyles";
+import FlashMessage from "react-flash-message";
 import {
   CartRow,
   CartData,
@@ -17,16 +18,23 @@ export default function ShoppingCart({
   total,
   setTotal,
 }) {
+  const [showFlash, setFlash] = useState(false);
   function deleteHandler(e) {
     e.stopPropagation()
     const itemName = e.target.parentElement.parentElement.getAttribute("data-name");
     const currentItem = cartItems.find(item => item.name === itemName)
     console.log(itemName, currentItem)  
     setItems(cartItems.filter(item => item.name !== itemName))
-    // setTotal(total - currentItem.price);
+    setTotal((parseFloat(total) - parseFloat(currentItem.price)).toFixed(2));
+    setFlash(true);
+
   }
   return(
     <Container>
+      {showFlash && 
+      <FlashMessage className="alert notification" duration={1500}>Item removed from cart!
+      </FlashMessage>
+      }
       <CartContainer>
         { 
           cartItems.length === 0 && 

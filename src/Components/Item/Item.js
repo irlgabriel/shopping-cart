@@ -12,21 +12,21 @@ export default function Item({
   cartItems,
   setItems,
   total,
-  setTotal
+  setTotal,
 }) {
   const [clicked, setClicked] = useState(cartItems.includes(item))
   function clickHandler() {
     if(!cartItems.includes(item)) {
       setItems([...cartItems, item]);
-      setTotal(parseInt((total + item.price)).toFixed(2))
+      setTotal((parseFloat(total) + parseFloat(item.price)).toFixed(2));
     }
     setClicked(true);
   }
 
   return(
-    <ItemContainer onClick={clickHandler}>
+    <ItemContainer>
       <Header>{item.name}</Header>
-      <PriceLabel clicked={clicked}><Bold>${item.price}</Bold><BuyButton/></PriceLabel>
+      <PriceLabel  onClick={clickHandler} clicked={clicked}><Bold>${item.price}</Bold><BuyButton/></PriceLabel>
       
     </ItemContainer>
   )
