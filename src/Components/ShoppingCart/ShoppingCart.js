@@ -10,6 +10,7 @@ import {
   CartHeader,
   DeleteDiv,
   Link,
+  LinkButton
 } from "./ShoppingCart.components";
 
 export default function ShoppingCart({ cartItems, setItems, total, setTotal }) {
@@ -65,6 +66,11 @@ export default function ShoppingCart({ cartItems, setItems, total, setTotal }) {
                 <Bold>Total</Bold>
               </CartData>
               <CartData>{<Bold>{"$" + total}</Bold>}</CartData>
+            </CartRow>
+            <CartRow>
+              <CartData>
+                <LinkButton to="/cart">Checkout</LinkButton>
+              </CartData>
             </CartRow>
           </CartTable>
         )}

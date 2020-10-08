@@ -52,3 +52,12 @@ export const DeleteIcon = styled(FaTrash)`
     transform: scale(1.05);
   }
 `;
+
+
+export const LinkButton = styled(Link)`
+  padding: .375rem 1rem;
+  background: lightskyblue;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+`
