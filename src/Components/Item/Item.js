@@ -23,13 +23,6 @@ export default function Item({
     setClicked(true);
   }
 
-  useEffect(updateTotal, [cartItems])
-
-  function updateTotal() {
-    setTotal(0);
-    cartItems.forEach(obj => setTotal(total + obj.price))
-  }
-
   return(
     <ItemContainer onClick={clickHandler}>
       <Header>{item.name}</Header>

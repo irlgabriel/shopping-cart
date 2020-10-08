@@ -6,6 +6,9 @@ import {
   CartContainer,
   CartTable,
   DeleteIcon,
+  CartHeader,
+  DeleteDiv,
+  Link,
 } from "./ShoppingCart.components";
 
 export default function ShoppingCart({
@@ -15,14 +18,25 @@ export default function ShoppingCart({
   setTotal,
 }) {
   function deleteHandler(e) {
+    e.stopPropagation()
     const itemName = e.target.getAttribute("data-name")
+    const currentItem = cartItems.find(item => item.name == itemName)
+    console.log(itemName, currentItem)  
+
     console.log(e.target, e.itemName)
-    setItems(cartItems.filter(item => item.name !== itemName))  
+    setItems(cartItems.filter(item => item.name !== itemName))
+    // setTotal(total - currentItem.price);
   }
   return(
     <Container>
       <CartContainer>
-        
+        { 
+          cartItems.length == 0 && 
+          <Container>
+            <CartHeader>You don't have any items in your cart</CartHeader>
+            <Link to="/">Pick some Items</Link>
+          </Container>
+        }
         { 
           cartItems.length != 0 &&
           <CartTable>
@@ -38,7 +52,9 @@ export default function ShoppingCart({
               cartItems.map(item =>
                 <CartRow key={item.name} data-name={item.name}>
                   <CartData>  
-                  <DeleteIcon data-name={item.name} onClick={deleteHandler} />
+                  <DeleteDiv data-name={item.name} onClick={deleteHandler} >
+                    <DeleteIcon />
+                  </DeleteDiv>
                     {item.name}
                   </CartData>
                   <CartData>

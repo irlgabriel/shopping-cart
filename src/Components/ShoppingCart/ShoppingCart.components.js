@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { FaTrash }   from "react-icons/fa";
+import { Link as RouteLink } from "react-router-dom";
 
 export const CartTable = styled.div`
   margin-left: auto;
@@ -34,6 +35,14 @@ export const CartData = styled.div`
 `
 
 export const CartHeader = styled.h3`
+
+`
+
+export const Link = styled(RouteLink)`
+  text-decoration: none;
+`
+
+export const DeleteDiv = styled.span`
 
 `
 
